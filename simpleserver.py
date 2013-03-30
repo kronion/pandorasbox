@@ -38,8 +38,10 @@ image.start()
 
 while True:
     client, address = s.accept()
-    data = client.recv(size)
-    if data:
+    data = None
+    while (buffer = client.recv(size)) > 0)
+    	data += buffer
+    if data is not None:
         image.changename(data)
         client.send("Data received: " + data)
     client.close() 
